@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    导入注解-->
+    <context:annotation-config/>
+<!--    自动装配的形式-->
+    <bean id="animal" class="com.devil.entity.Animal"/>
+
+<!--    @Autowired自动注入，通过类型注入，如果有两个相同的类型，就找id，找不到id ==> 报错-->
+    <bean id="cat1" class="com.devil.entity.Cat"></bean>
+    <bean id="cat2" class="com.devil.entity.Cat"></bean>
+    <bean id="dog" class="com.devil.entity.Dog"></bean>
+
+<!--    没用自动装配的形式-->
+    <!-- <bean id="cat" class="com.devil.entity.Cat"></bean>
+     <bean id="dog" class="com.devil.entity.Dog"></bean>
+     <bean id="animal" class="com.devil.entity.Animal">
+         <property name="cat" ref="cat"/>
+         <property name="dog" ref="dog"/>
+         <property name="name" value="aaa"/>
+     </bean>-->
+
+</beans>

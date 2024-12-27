@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--    set注入-->
+<!--    scope默认值就是singleton,可以省略-->
+<!--    scope: prototype: 原型模型，每次get都会创建新对象-->
+    <bean id="address" class="com.devil.entity.Address" scope="prototype">
+<!--       通setAddress方法注入 <-->
+        <property name="address" value="常大"/>
+    </bean>
+
+    <bean id="student" class="com.devil.entity.Student">
+<!--        value注入-->
+        <property name="name" value="devil"/>
+<!--        ref bean注入-->
+        <property name="address" ref="address"/>
+<!--        数组注入-->
+        <property name="books">
+            <array>
+                <value>红楼梦</value>
+                <value>西游记</value>
+                <value>三国演义</value>
+                <value>水浒传</value>
+            </array>
+        </property>
+<!--        list注入-->
+        <property name="hobbys">
+            <list>
+                <value>唱</value>
+                <value>跳</value>
+                <value>rap</value>
+            </list>
+        </property>
+<!--        map注入-->
+        <property name="card">
+            <map>
+                <entry key="身份证" value="123"></entry>
+                <entry key="银行卡" value="456"></entry>
+            </map>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--
+    使用Spring创建对象，在spring中这些都称为Bean
+    bean = 对象 ==> new User()
+-->
+<!--
+   id  = 变量名
+   class = new 的对象名
+
+   此时有一个对象叫user ,是从User类中创建的
+    TODO User user = new User();
+    无参构造器
+   -->
+    <bean id="user" class="com.devil.bean.User">
+<!--
+    property : 给对象中的属性赋值
+    TODO user.setName = "Spring
+-->
+        <property name="name" value="Spring"/>
+    </bean>
+
+<!--    TODO 有参构造器创建对象
+        User user2 = new User("devil");
+-->
+    <bean id="user2" class="com.devil.bean.User">
+<!--        通过索引，第几个参数，不建议-->
+<!--        <constructor-arg index="0" value="devil"/>-->
+
+<!--        通过类型，不建议，存在两个相同类型的属性，会报异常-->
+<!--        <constructor-arg type="java.lang.String" value="devil2"/>-->
+
+<!--        通过参数名字赋值：推荐-->
+        <constructor-arg name="name" value="devil3"/>
+    </bean>
+</beans>
